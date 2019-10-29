@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        for (;;){
+            System.out.print("Gün: ");
+            int day = Integer.parseInt(kb.nextLine());
+
+            if (day == 0)
+                break;
+            System.out.print("Ay: ");
+            int mon = Integer.parseInt(kb.nextLine());
+            System.out.print("Yıl: ");
+            int year = Integer.parseInt(kb.nextLine());
+
+            int dayOfYear = DateUtil.getDayOfYear(day,mon,year);
+
+            if (dayOfYear != -1)
+                System.out.printf("%02d/%02d/%04d tarihi yilin %d günüdür..%n",day,mon,year,dayOfYear);
+            else
+                System.out.printf("Geçersiz Tarih..%n");
+        }
+        System.out.printf("Gün Değeri 0 Girilemez..");
+    }
+}
+
+class DateUtil{
+    public static int getDayOfYear(int day, int mon, int year)
+    {
+        if (!isValidDate(day, mon, year))
+            return -1;
+
+        int dayOfYear = day;
+
+        switch (mon -1){
+            case 11:
+                dayOfYear += 30;
+
+            case 10:
+                dayOfYear += 31;
+
+            case 9:
+                dayOfYear += 30;
+
+            case 8:
+                dayOfYear += 31;
+
+            case 7:
+                dayOfYear += 31;
+
+            case 6:
+                dayOfYear += 30;
+
+            case 5:
+                dayOfYear += 31;
+
+            case 4:
+                dayOfYear += 30;
+
+            case 3:
+                dayOfYear += 31;
+            case 2:
+                dayOfYear += 28;
+                if (isLeapYear(year))
+                    ++dayOfYear;
+            case 1:
+                dayOfYear +=31;
+
+        }
+        return dayOfYear;
+    }
+    public static boolean isValidDate(int day, int mon, int year)
+    {
+        if(day < 0 || day > 31 && mon < 0 || mon >12)
+            return false;
+        int days = 31 ;
+
+        switch (mon){
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days = 30 ;
+                break;
+            case 2:
+                days = 28 ;
+                if (isLeapYear(year))
+                    ++days;
+        }
+        return day <= days ;
+    }
+    public static boolean isLeapYear(int year)
+    {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ;
+    }
+}

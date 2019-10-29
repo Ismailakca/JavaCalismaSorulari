@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+
+        SecondOrderEquationApp.run();
+    }
+}
+
+class SecondOrderEquationApp{
+    public static double getDelta(double a, double b, double c) {
+        return b * b - 4 * a * c;
+    }
+
+    public static void findRoots(double a, double b, double c)
+    {
+        double delta = getDelta(a,b,c);
+
+        if (delta > 0){
+            double sqrtDelta = Math.sqrt(delta);
+            double x1 = (-b + sqrtDelta) / (2 * a);
+            double x2 = (-b - sqrtDelta) / (2 * a);
+
+            System.out.printf("x1 = %f x2 = %f%n ", x1,x2);
+        }
+        else if (delta == 0) {
+            double x = -b / (2 * a);
+            System.out.printf("x1=x2=%f%n", x);
+        }
+        else
+            System.out.printf("Gerçek kök yok ");
+    }
+
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.printf("A'yi Giriniz");
+        double a = Double.parseDouble(kb.nextLine());
+        System.out.printf("B'yi Giriniz");
+        double b = Double.parseDouble(kb.nextLine());
+        System.out.printf("C'yi Giriniz");
+        double c = Double.parseDouble(kb.nextLine());
+
+        findRoots(a,b,c);
+    }
+}

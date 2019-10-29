@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        Application.run();
+    }
+}
+
+class Application{
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        int postCount = 0 , negCount = 0;
+        for (;;) {
+            System.out.printf("Sayilari Girmeye başlayınız..%n");
+            int n = Integer.parseInt(kb.nextLine());
+
+            if (n == 0)
+                break;
+            if (n > 0)
+                ++postCount;
+            else
+                ++negCount;
+        }
+        System.out.printf("Çift Sayilarin adedi%d%n ", postCount);
+        System.out.printf("Tek Sayilarin adedi%d%n ", negCount);
+
+    }
+}

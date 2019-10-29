@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Bir Sayi Giriniz");
+
+        int n = Integer.parseInt(kb.nextLine());
+        System.out.printf("Girdğiniz Sayinin faktoriyeli %d%n",Sample.getFactorial(n));
+    }
+}
+
+class Sample{
+    public static int getFactorial(int val)
+    {
+        if( val < 1)
+            return -1;
+        int result = 1;
+        for (int i = 1 ; i <= val ; ++i)
+            result *= i;
+        return result;
+    }
+}

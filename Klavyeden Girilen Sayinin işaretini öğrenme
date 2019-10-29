@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        signum.run();
+    }
+}
+
+class signum{
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Bir Sayi giriniz");
+        int n = Integer.parseInt(kb.nextLine());
+        if (n > 0)
+            System.out.print("Girdiğiniz sayi pozitif");
+        else if(n < 0)
+            System.out.println("Girdiğiniz sayi negatif");
+        else
+            System.out.println("Girdiğiniz sayi 0");
+    }
+}

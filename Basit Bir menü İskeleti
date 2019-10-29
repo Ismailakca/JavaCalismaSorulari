@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        SimpleMenuApp.run();
+    }
+}
+
+class SimpleMenuApp{
+    public static void displayMenu()
+    {
+        System.out.println("1.Ekle");
+        System.out.println("2.Güncelle");
+        System.out.println("3.Sil");
+        System.out.println("4.Listele");
+        System.out.println("5.Çıkış");
+        System.out.print("Seçenek : ");
+    }
+    public static void insertProc()
+    {
+        System.out.println("Eklendi..");
+    }
+    public static void updatetProc()
+    {
+        System.out.println("Güncellendi..");
+    }
+    public static void deleteProc()
+    {
+        System.out.println("Silindi..");
+    }
+    public static void listProc()
+    {
+        System.out.println("Listelendi..");
+    }
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        EXIT_LOOP:
+        for (;;){
+            displayMenu();
+            int n = Integer.parseInt(kb.nextLine());
+            switch (n){
+               case 1:
+                   listProc();
+                   break;
+               case 2:
+                   updatetProc();
+                   break;
+               case 3:
+                   deleteProc();
+                   break;
+               case 4:
+                   listProc();
+                   break;
+                case 5:
+                    break EXIT_LOOP;
+                default:
+                    System.out.println("Geçersiz Değer");
+           }
+        }
+        System.out.println("tekrar yap");
+    }
+}

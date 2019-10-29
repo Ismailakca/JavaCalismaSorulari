@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        System.out.printf("Yüksek basamaklı Sayi giriniz...%n");
+        int n = Integer.parseInt(kb.nextLine());
+
+        System.out.printf("Giridiniğiz sayinin basamak adedi %d%n",Sample.add(n));
+    }
+}
+
+class Sample{
+    public static int add(int val)
+    {
+        int adet = (int)Math.log10(val) + 1;
+
+        return adet;
+    }
+}

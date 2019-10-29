@@ -1,0 +1,15 @@
+class App{
+    public static void main(String[] args) {
+        for (int  i = 1999; i < 2100 ; ++i)
+            if (DateUtil.isLeapYear(i))
+                System.out.printf("Artik yıl %d%n",i);
+
+    }
+}
+
+class DateUtil{
+    public static boolean isLeapYear(int year)
+    {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ;
+    }
+}

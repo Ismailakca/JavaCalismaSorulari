@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        Test.run();
+    }
+}
+
+class Sample{
+    public static int getReverse(int val)
+    {
+        int rev = 0 ;
+
+        while (val != 0){
+            rev = rev * 10 + val % 10 ;
+            val /= 10;
+        }
+        rev = Math.abs(rev);
+        return rev;
+    }
+}
+
+class Test{
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        for (;;){
+            System.out.println("Sayilari Girmeye Başlayınız");
+            int n = Integer.parseInt(kb.nextLine());
+            if( n == 0)
+                break;
+            System.out.printf("Girdiğiniz Sayinin Tersi %d%n",Sample.getReverse(n));
+        }
+    }
+}

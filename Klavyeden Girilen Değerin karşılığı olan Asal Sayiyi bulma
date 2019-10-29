@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Kaçıncı asal sayı lazım ??");
+        int n = Integer.parseInt(kb.nextLine());
+
+        int val = NumberUtil.getPrime(n);
+        if (n > 0)
+            System.out.printf("%d. asal sayi %d%n", n , val);
+        else
+            System.out.printf("Geçersiz değer girdiniz");
+    }
+}
+
+class NumberUtil{
+    public static int getPrime(int n)
+    {
+        int count = 0 , val = 0;
+        for (int i = 2 ; count < n; ++i)
+            if (isPrime(i)){
+                ++count;
+                val = i;
+            }
+        return val;
+    }
+    public static boolean isPrime(int val)
+    {
+        if(val <= 1)
+            return false;
+        if(val % 2 == 0)
+            return val == 2;
+        if(val % 3 == 0)
+            return val == 3;
+        if(val % 5 == 0)
+            return val == 5;
+        if(val % 7 == 0)
+            return val == 7;
+        for (int i = 11 ; i * i <= val ; i+=2)
+            if (val % i == 0)
+                return false;
+
+        return true;
+    }
+
+}
+
+

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class App{
+    public static void main(String[] args) {
+    Sample.run();
+
+    }
+}
+
+class Sample{
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("lütfen Sayi Giriniz");
+        double n = Double.parseDouble(kb.nextLine());
+        System.out.println("Lütfen Sayi giriniz");
+        double n2 = Double.parseDouble(kb.nextLine());
+        double result = n + n2;
+        System.out.printf("Toplam : %f%n",result);
+        result = n - n2;
+        System.out.printf("Fark : %f%n", result);
+        result = n / n2 ;
+        System.out.printf("Bölüm : %f%n", result);
+    }
+
+}
