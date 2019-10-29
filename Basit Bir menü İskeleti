@@ -58,6 +58,5 @@ class SimpleMenuApp{
                     System.out.println("Geçersiz Değer");
            }
         }
-        System.out.println("tekrar yap");
     }
 }
