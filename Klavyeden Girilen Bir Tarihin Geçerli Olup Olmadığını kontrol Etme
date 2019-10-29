@@ -38,9 +38,7 @@ class DateUtil{
                 days = 30 ;
                 break;
             case 2:
-                days = 28 ;
-                if (isLeapYear(year))
-                    ++days;
+                days = isLeapYear(year) ? 29 : 28;
         }
         return day <= days ;
     }
